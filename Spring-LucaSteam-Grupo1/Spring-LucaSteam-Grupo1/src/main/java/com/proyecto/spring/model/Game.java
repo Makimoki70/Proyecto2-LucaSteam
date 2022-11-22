@@ -18,13 +18,13 @@ public class Game {
 	@NotEmpty(message = "El nombre no debe ser vacío") //Si el valor esta vacio, saldra este mensaje
 	private String nombre;
 	@NotEmpty(message = "Es necesario indicar una plataforma")
-	private Plataforma plataforma;
+	private String plataforma;
 	//VALORES APLICADOS EN FECHA
 	@Max(value = 2022) //Valor maximo
 	@Min(value = 1980) //Valor minimo
 	private int year;
 	@NotEmpty(message = "Es necesario indicar un genero")
-	private Genero genero;
+	private String genero;
 	@NotEmpty(message = "Es necesario indicar un editor")
 	private String editor;
 	
@@ -50,11 +50,11 @@ public class Game {
 		this.nombre = nombre;
 	}
 
-	public Plataforma getPlataforma() {
+	public String getPlataforma() {
 		return plataforma;
 	}
 
-	public void setPlataforma(Plataforma plataforma) {
+	public void setPlataforma(String plataforma) {
 		this.plataforma = plataforma;
 	}
 
@@ -62,15 +62,15 @@ public class Game {
 		return year;
 	}
 
-	public void setFecha(int year) {
+	public void setYear(int year) {
 		this.year = year;
 	}
 
-	public Genero getGenero() {
+	public String getGenero() {
 		return genero;
 	}
 
-	public void setGenero(Genero genero) {
+	public void setGenero(String genero) {
 		this.genero = genero;
 	}
 
