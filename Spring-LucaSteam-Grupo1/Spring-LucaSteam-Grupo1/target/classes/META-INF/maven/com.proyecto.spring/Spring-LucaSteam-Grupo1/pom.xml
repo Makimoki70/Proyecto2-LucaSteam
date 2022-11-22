@@ -15,7 +15,8 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
         <java.version>17</java.version>
-        <org.springdoc-version>1.6.4</org.springdoc-version>        
+        <org.springdoc-version>1.6.4</org.springdoc-version>    
+        <version-csv>3.8</version-csv>    
     </properties>
 	<dependencies>
 		<dependency>
@@ -54,6 +55,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+    		<groupId>com.opencsv</groupId>
+   			<artifactId>opencsv</artifactId>
+    		<version>${version-csv}</version>
 		</dependency>
 	</dependencies>
 
