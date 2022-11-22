@@ -20,7 +20,6 @@ import com.proyecto.spring.service.GameService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 
-
 @RestController
 @Validated
 @RequestMapping("/games")
@@ -36,7 +35,7 @@ public class GameController {
 		
 		Game result = this.serv.addGame(game);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-				.buildAndExpand(result.getNombre()).toUri();
+				.buildAndExpand(result.getId()).toUri();
 		return ResponseEntity.created(location).build();
 		
 	}
