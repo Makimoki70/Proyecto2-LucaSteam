@@ -17,6 +17,8 @@ public class GameServiceImpl implements GameService {
 	public void addGame(Game game) {
 		// TODO Auto-generated method stub
 		
+		data.save(game);
+		
 	}
 	
 	
