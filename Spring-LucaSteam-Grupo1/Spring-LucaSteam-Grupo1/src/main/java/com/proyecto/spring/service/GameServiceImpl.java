@@ -1,5 +1,8 @@
 package com.proyecto.spring.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,15 +15,33 @@ public class GameServiceImpl implements GameService {
 	@Autowired
 	private GameDAO data;
 	
-
 	@Override
-	public void addGame(Game game) {
-		// TODO Auto-generated method stub
-		
-		data.save(game);
-		
+	public Game addGame(Game game) {
+		return data.save(game);
 	}
 	
+	@Override
+	public List<Game> findAll() {
+		return data.findAll();
+	}
 	
+	@Override
+	public Optional<Game> findById(int id) {
+		return data.findById(id);
+	}
+	
+	@Override
+	public void update(Game game) {
+		data.save(game);
+	}
+	
+	@Override
+	public void deleteById(int id) {
+		data.deleteById(id);
+	}
 
+	@Override
+	public List<Game> FindByPublisher(String name) { //Buscador de publisher (para Nintendo)
+		return data.FindByPublisher(name);
+	}
 }
