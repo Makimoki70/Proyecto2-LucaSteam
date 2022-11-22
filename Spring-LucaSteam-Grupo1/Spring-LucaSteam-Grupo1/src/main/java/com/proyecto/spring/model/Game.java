@@ -10,6 +10,8 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
+import com.proyecto.spring.utilities.TratamientoDatos;
+
 
 @Entity
 @Table(name="games")
@@ -17,18 +19,19 @@ public class Game {
 	private int id;
 	@NotEmpty(message = "El nombre no debe ser vacío") //Si el valor esta vacio, saldra este mensaje
 	private String nombre;
-	@NotEmpty(message = "Es necesario indicar una plataforma")
-	private String plataforma;
+	//@NotEmpty(message = "Es necesario indicar una plataforma")
+	private Plataforma plataforma;
 	//VALORES APLICADOS EN FECHA
 	@Max(value = 2022) //Valor maximo
 	@Min(value = 1980) //Valor minimo
 	private int year;
-	@NotEmpty(message = "Es necesario indicar un genero")
-	private String genero;
+	//@NotEmpty(message = "Es necesario indicar un genero")
+	private Genero genero;
 	@NotEmpty(message = "Es necesario indicar un editor")
 	private String editor;
 	
 	public Game() {
+		
 	}
 
 	@Id
@@ -51,11 +54,11 @@ public class Game {
 	}
 
 	public String getPlataforma() {
-		return plataforma;
+		return plataforma.getPlataforma();
 	}
 
 	public void setPlataforma(String plataforma) {
-		this.plataforma = plataforma;
+		this.plataforma = TratamientoDatos.tratarEnumPlataforma(plataforma);
 	}
 
 	public int getYear() {
@@ -67,11 +70,11 @@ public class Game {
 	}
 
 	public String getGenero() {
-		return genero;
+		return genero.getGenero();
 	}
 
 	public void setGenero(String genero) {
-		this.genero = genero;
+		this.genero = TratamientoDatos.tratarEnumGenero(genero);
 	}
 
 	public String getEditor() {
