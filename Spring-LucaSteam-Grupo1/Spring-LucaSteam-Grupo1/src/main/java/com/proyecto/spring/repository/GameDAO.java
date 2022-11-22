@@ -8,4 +8,7 @@ import com.proyecto.spring.model.Game;
 @Repository
 public interface GameDAO extends JpaRepository<Game,Integer> {
 	
+	
+	
+	
 }
