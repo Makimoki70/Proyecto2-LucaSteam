@@ -4,6 +4,6 @@ import com.proyecto.spring.model.Game;
 
 public interface GameService {
 	
-	public void gameAdd (Game game);
+	public void addGame (Game game);
 	
 }

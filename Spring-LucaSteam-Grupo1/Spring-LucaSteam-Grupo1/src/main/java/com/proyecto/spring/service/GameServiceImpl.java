@@ -11,13 +11,11 @@ public class GameServiceImpl implements GameService {
 	
 	@Autowired
 	private GameDAO data;
+	
 
 	@Override
-	public void gameAdd(Game game) {
+	public void addGame(Game game) {
 		// TODO Auto-generated method stub
-		
-		data.save(game);
-		
 		
 	}
 	
