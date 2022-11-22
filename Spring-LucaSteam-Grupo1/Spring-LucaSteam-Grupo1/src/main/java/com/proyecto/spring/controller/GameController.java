@@ -1,4 +1,4 @@
-package com.proyecto.controller;
+package com.proyecto.spring.controller;
 
 
 
