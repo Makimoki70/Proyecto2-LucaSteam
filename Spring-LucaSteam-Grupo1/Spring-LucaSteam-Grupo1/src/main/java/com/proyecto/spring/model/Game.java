@@ -1,30 +1,45 @@
 package com.proyecto.spring.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+
+
+@Entity
+@Table(name="games")
 public class Game {
+	private int id;
+	@NotEmpty(message = "El nombre no debe ser vacío") //Si el valor esta vacio, saldra este mensaje
 	private String nombre;
+	@NotEmpty(message = "Es necesario indicar una plataforma")
 	private Plataforma plataforma;
-	private int fecha;
+	//VALORES APLICADOS EN FECHA
+	@Max(value = 2022) //Valor maximo
+	@Min(value = 1980) //Valor minimo
+	private int year;
+	@NotEmpty(message = "Es necesario indicar un genero")
 	private Genero genero;
+	@NotEmpty(message = "Es necesario indicar un editor")
 	private String editor;
 	
 	public Game() {
-		
 	}
 
-	public Game(String nombre, int fecha, String editor) {
-		super();
-		this.nombre = nombre;
-		this.fecha = fecha;
-		this.editor = editor;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
+	public int getId() {
+		return id;
 	}
 
-	public Game(String nombre, Plataforma plataforma, int fecha, Genero genero, String editor) {
-		super();
-		this.nombre = nombre;
-		this.plataforma = plataforma;
-		this.fecha = fecha;
-		this.genero = genero;
-		this.editor = editor;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getNombre() {
@@ -43,12 +58,12 @@ public class Game {
 		this.plataforma = plataforma;
 	}
 
-	public int getFecha() {
-		return fecha;
+	public int getYear() {
+		return year;
 	}
 
-	public void setFecha(int fecha) {
-		this.fecha = fecha;
+	public void setFecha(int year) {
+		this.year = year;
 	}
 
 	public Genero getGenero() {
@@ -69,6 +84,7 @@ public class Game {
 
 	@Override
 	public String toString() {
-		return "Juego [nombre=" + nombre + ", fecha=" + fecha + " editor=" + editor + "]";
+		return "Game [id=" + id + ", nombre=" + nombre + ", plataforma=" + plataforma + ", year=" + year + ", genero="
+				+ genero + ", editor=" + editor + "]";
 	}
 }
