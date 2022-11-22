@@ -47,10 +47,10 @@ public class GameController {
 		return serv.findById(id);
 	}
 	
-	@GetMapping("/Publisher/{game}")
+	@GetMapping("/publisher/{name}")
 	public List<Game> listGamesByPublisher(@PathVariable String name) { //Busqueda de publishers (para Nintendo)
-		return serv.FindByPublisher(name);
-	}	
+		return serv.findByPublisher(name);
+	}
 	
 	//Updatear juegos
 	@PutMapping
@@ -72,6 +72,4 @@ public class GameController {
 				.buildAndExpand(result.getNombre()).toUri();
 		return ResponseEntity.created(location).build();
 	}
-	
-
 }

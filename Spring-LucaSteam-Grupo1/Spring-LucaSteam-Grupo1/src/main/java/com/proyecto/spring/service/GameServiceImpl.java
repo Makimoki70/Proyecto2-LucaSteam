@@ -41,7 +41,7 @@ public class GameServiceImpl implements GameService {
 	}
 
 	@Override
-	public List<Game> FindByPublisher(String name) { //Buscador de publisher (para Nintendo)
-		return data.FindByPublisher(name);
+	public List<Game> findByPublisher(String name) { //Buscador de publisher (para Nintendo)
+		return data.findByPublisher(name);
 	}
 }

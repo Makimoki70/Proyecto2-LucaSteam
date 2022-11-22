@@ -11,6 +11,6 @@ import com.proyecto.spring.model.Game;
 @Repository
 public interface GameDAO extends JpaRepository<Game,Integer> {
 	//Query para hacer la busqueda de nintendo
-    @Query("FROM games WHERE publisher = ?1")
-    List<Game> FindByPublisher(String username);
+    @Query("FROM Game WHERE editor = ?1")
+    List<Game> findByPublisher(String name);
 }
