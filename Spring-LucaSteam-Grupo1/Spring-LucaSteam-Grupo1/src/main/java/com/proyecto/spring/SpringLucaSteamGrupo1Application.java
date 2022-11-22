@@ -9,5 +9,4 @@ public class SpringLucaSteamGrupo1Application {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringLucaSteamGrupo1Application.class, args);
 	}
-
 }
