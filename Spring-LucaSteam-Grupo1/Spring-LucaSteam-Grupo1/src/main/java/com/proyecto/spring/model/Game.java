@@ -29,17 +29,6 @@ public class Game {
 	private String editor;
 	
 	public Game() {
-		
-	}
-	
-	public Game(int id, String nombre, Plataforma plataforma, int year, Genero genero, String editor) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.plataforma = plataforma;
-		this.year = year;
-		this.genero = genero;
-		this.editor = editor;
 	}
 
 	@Id
