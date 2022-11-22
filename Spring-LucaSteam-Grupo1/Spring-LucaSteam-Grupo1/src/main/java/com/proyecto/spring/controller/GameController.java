@@ -1,6 +1,4 @@
-package com.proyecto.controller;
-
-
+package com.proyecto.spring.controller;
 
 import java.net.URI;
 
