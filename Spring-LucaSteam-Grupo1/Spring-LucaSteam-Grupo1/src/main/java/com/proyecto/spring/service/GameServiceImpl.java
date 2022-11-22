@@ -14,10 +14,11 @@ public class GameServiceImpl implements GameService {
 	
 
 	@Override
-	public void addGame(Game game) {
-		// TODO Auto-generated method stub
+	public Game addGame(Game game) {
+		// TODO Auto-generated method stub	
 		
-		data.save(game);
+		
+		return data.save(game);
 		
 	}
 	
