@@ -1,7 +1,12 @@
 package com.proyecto.spring.service;
 
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import java.util.List;
 import java.util.Optional;
+
 
 import com.proyecto.spring.model.Game;
 
@@ -10,6 +15,10 @@ public interface GameService {
 	//Para crear juego (C)
 	public Game addGame (Game game);
 	
+
+	public void cargaInicial() throws FileNotFoundException, IOException;
+	
+
 	//Para mostrar un juego (R)
 	List<Game> findAll();
 		
@@ -22,4 +31,5 @@ public interface GameService {
 	public void deleteById(int id);
 
 	public List<Game> findByPublisher(String name); //Buscar por Editor (Nintendo)
+
 }
