@@ -2,7 +2,6 @@ package com.proyecto.spring.service;
 
 
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 
 import java.util.List;
@@ -12,7 +11,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.opencsv.CSVReader;
+
+
 import com.proyecto.spring.model.Game;
 import com.proyecto.spring.repository.CargarFichero;
 import com.proyecto.spring.repository.GameDAO;
@@ -55,8 +55,16 @@ public class GameServiceImpl implements GameService {
 	}
 	
 	@Override
-	public void update(Game game) {
-		data.save(game);
+	public Optional<Game> update(Game game) {
+		
+		Optional<Game> currentGame = data.findById(game.getId());
+		if (currentGame != null) {
+			data.save(game);
+		
+		}
+		
+		return currentGame;
+				
 	}
 	
 	@Override

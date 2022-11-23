@@ -24,7 +24,7 @@ public interface GameService {
 	Optional<Game> findById(int id);
 	
 	//Para hacer update (U)
-	public void update(Game game);
+	public Optional<Game> update(Game game);
 		
 	//Para Borrar por id (D)
 	public void deleteById(int id);
