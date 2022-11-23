@@ -28,6 +28,7 @@ public class Game {
 	@NotEmpty(message = "Es necesario indicar un editor")
 	private String editor;
 	
+	
 	public Game() {
 	}
 

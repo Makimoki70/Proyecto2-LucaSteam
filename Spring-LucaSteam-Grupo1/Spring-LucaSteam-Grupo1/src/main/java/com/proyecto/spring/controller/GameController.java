@@ -1,5 +1,7 @@
 package com.proyecto.spring.controller;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
@@ -34,6 +36,13 @@ public class GameController {
 	
 	@Autowired
 	private GameService serv;
+	
+	
+	public void cargarDatos() throws FileNotFoundException, IOException {
+		
+		serv.cargarDatos();
+		
+	};
 	
 	//Metodos que autoimplementa Spring con JPA
 	//Listar Usuarios

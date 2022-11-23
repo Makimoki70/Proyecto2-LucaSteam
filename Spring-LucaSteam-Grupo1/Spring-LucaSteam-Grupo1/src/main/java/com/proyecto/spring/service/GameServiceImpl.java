@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.opencsv.CSVReader;
 import com.proyecto.spring.model.Game;
+import com.proyecto.spring.repository.CargarFichero;
 import com.proyecto.spring.repository.GameDAO;
 
 
@@ -23,6 +24,9 @@ public class GameServiceImpl implements GameService {
 	@Autowired
 	private GameDAO data;
 	
+	@Autowired
+	private CargarFichero carga;
+	
 	@Override
 	public Game addGame(Game game) {
 		return data.save(game);
@@ -30,39 +34,13 @@ public class GameServiceImpl implements GameService {
 
 
 	@Override
-	public void cargaInicial() throws FileNotFoundException, IOException    {
+	public void cargarDatos() throws FileNotFoundException, IOException {
 		// TODO Auto-generated method stub
-		
 
-			
-			CSVReader csvReader = new CSVReader(new FileReader("resources/vgsales.csv"),',','"');
-			csvReader.readNext();
-			String [] data = csvReader.readNext();			
-			
-			while (null!=data) {
-				
-				Game game = new Game ();
-				
-				game.setNombre(data[1]);
-				
-				game.setPlataforma(data[2]);
-				
-				if(!data[3].equals("N/A")){
-					game.setYear(Integer.parseInt(data[3]));
-				}
-				
-				game.setGenero(data[4]);			
-								
-				game.setEditor(data[5]);
-				
-				
-				
-				data = csvReader.readNext();
-			}	
-		
-		
+		carga.cargaInicial();
 		
 	}
+	
 
 	
 	
@@ -91,5 +69,13 @@ public class GameServiceImpl implements GameService {
 	public List<Game> findByPublisher(String name) { //Buscador de publisher (para Nintendo)
 		return data.findByPublisher(name);
 	}
+
+
+
+
+
+
+
+	
 }
 
