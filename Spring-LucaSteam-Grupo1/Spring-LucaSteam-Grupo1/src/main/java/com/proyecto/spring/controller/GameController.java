@@ -78,7 +78,7 @@ public class GameController {
 	{
 		Game result = this.serv.addGame(game);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-				.buildAndExpand(result.getNombre()).toUri();
+				.buildAndExpand(result.getId()).toUri();
 		return ResponseEntity.created(location).build();
 	}
 }
