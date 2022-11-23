@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+
+import com.proyecto.spring.controller.error.GameNotFoundException;
 import com.proyecto.spring.model.Game;
 import com.proyecto.spring.service.GameService;
 
@@ -63,8 +65,8 @@ public class GameController {
 	
 	//Updatear juegos
 	@PutMapping
-	public void update(@RequestBody Game game) {
-		serv.update(game);
+	public Game update(@RequestBody Game game) {
+		return this.serv.update(game).orElseThrow(GameNotFoundException::new);
 	}
 	
 	//Eliminar juegos por Id
