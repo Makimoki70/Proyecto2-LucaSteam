@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.example.spring.controller.error.EstudianteNoEncontradoException;
+
 import com.proyecto.spring.controller.error.GameNotFoundException;
 import com.proyecto.spring.model.Game;
 import com.proyecto.spring.service.GameService;
