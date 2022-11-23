@@ -17,22 +17,25 @@ public class CargarFichero {
 	private GameDAO datos;
 	
 	public void cargaInicial() throws FileNotFoundException, IOException    {		
-
 			
-			CSVReader csvReader = new CSVReader(new FileReader("resources/vgsales.csv"),',','"');
+		if(datos.findAll().isEmpty()) {
+		
+			CSVReader csvReader = new CSVReader(new FileReader("src/main/resources/vgsales.csv"),',','"');
 			csvReader.readNext();
 			String [] data = csvReader.readNext();			
 			
 			while (null!=data) {
-				
+				//System.out.println(data[1]);
 				Game game = new Game ();
 				
 				game.setNombre(data[1]);
 				
 				game.setPlataforma(data[2]);
 				
-				if(!data[3].equals("N/A")){
+				try {
 					game.setYear(Integer.parseInt(data[3]));
+				}catch (NumberFormatException e) {
+					game.setYear(1980);
 				}
 				
 				game.setGenero(data[4]);			
@@ -41,13 +44,9 @@ public class CargarFichero {
 				
 				datos.save(game);
 				
-				data = csvReader.readNext();
-				
-				
+				data = csvReader.readNext();				
 			}	
-		
-		
-		
+		}
 	}
 	
 

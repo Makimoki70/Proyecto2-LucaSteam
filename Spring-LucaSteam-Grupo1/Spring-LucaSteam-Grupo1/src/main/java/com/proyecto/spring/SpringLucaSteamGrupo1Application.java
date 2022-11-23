@@ -22,6 +22,5 @@ public class SpringLucaSteamGrupo1Application implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		gamecon.cargarDatos();
-		
 	}
 }
