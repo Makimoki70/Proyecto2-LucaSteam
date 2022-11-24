@@ -62,6 +62,11 @@ public class GameController {
 		return serv.findByPublisher(name);
 	}
 	
+	@GetMapping("/genre/{name}")
+	public List<Game> listGamesByGenre(@PathVariable String name){
+		return serv.findByGenre(name);
+	}
+	
 	//Updatear juegos
 	@PutMapping
 	public Game update(@RequestBody Game game) {

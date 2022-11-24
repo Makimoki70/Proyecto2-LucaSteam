@@ -78,7 +78,10 @@ public class GameServiceImpl implements GameService {
 		return data.findByPublisher(name);
 	}
 
-
+	@Override
+	public List<Game> findByGenre(String name){ // Buscador por genero.
+		return data.findByGenre(name);
+	}
 
 
 

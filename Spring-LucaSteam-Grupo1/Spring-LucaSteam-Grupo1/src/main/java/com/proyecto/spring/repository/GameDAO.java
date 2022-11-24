@@ -13,5 +13,8 @@ public interface GameDAO extends JpaRepository<Game,Integer> {
 	//Query para hacer la busqueda de nintendo
     @Query("FROM Game WHERE editor = ?1")
     List<Game> findByPublisher(String name);
+    
+    // Query que busca según el genero del juego
+    @Query("FROM Game WHERE genero = ?1")
+    List<Game> findByGenre(String name);
 }
-

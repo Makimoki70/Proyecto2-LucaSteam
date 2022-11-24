@@ -29,8 +29,9 @@ public interface GameService {
 	//Para Borrar por id (D)
 	public void deleteById(int id);
 
+	//Filtradores
 	public List<Game> findByPublisher(String name); //Buscar por Editor (Nintendo)
-
+	public List<Game> findByGenre(String name);
 
 
 
