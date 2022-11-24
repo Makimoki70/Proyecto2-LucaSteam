@@ -89,7 +89,10 @@ public class GameServiceImpl implements GameService {
 		return data.sigloxx();
 	}
 
-
+	@Override
+	public String demo(){
+		return data.demo().toString();
+	}
 
 	
 }

@@ -21,4 +21,7 @@ public interface GameDAO extends JpaRepository<Game,Integer> {
     // Query que muestra juegos del siglo XX.
     @Query("FROM Game WHERE year < 2001")
     List<Game> sigloxx();
+    
+    @Query("FROM Game WHERE editor='Nintendo'")
+    List<Game> demo();
 }

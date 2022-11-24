@@ -66,12 +66,17 @@ public class GameController {
 	public List<Game> listGamesByNintendo() { 
 		return serv.findByPublisher("Nintendo");
 	}
-		
+	
 	@GetMapping("/genre/{name}")
 	public List<Game> listGamesByGenre(@PathVariable String name){
 		return serv.findByGenre(name);
 	}
 	
+	@GetMapping("/demo")
+	public String demostracion(){
+		return "Hay "+serv.demo().length()+" juegos:\n"+serv.demo();
+	}
+
 	@GetMapping("/sigloxx")
 	public List<Game> findSigloXX(){
 		return serv.sigloxx();
@@ -86,8 +91,13 @@ public class GameController {
 	
 	//Eliminar juegos por Id
 	@DeleteMapping("/{id}")
-	public void deleteById(@PathVariable int id) {
-		serv.deleteById(id);
+	public String deleteById(@PathVariable int id){
+		try {
+			serv.deleteById(id);
+			return "El juego ha sido borrado.";
+		}catch(Exception e){
+			return "No existe un juego con ese código.";
+		}
 	}
 	
 	@PostMapping

@@ -33,9 +33,5 @@ public interface GameService {
 	public List<Game> findByPublisher(String name); //Buscar por Editor (Nintendo)
 	public List<Game> findByGenre(String name);
 	public List<Game> sigloxx();
-
-
-
-	
-
+	public String demo();
 }
