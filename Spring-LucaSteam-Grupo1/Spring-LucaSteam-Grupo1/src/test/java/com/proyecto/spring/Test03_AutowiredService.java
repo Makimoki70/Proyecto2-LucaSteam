@@ -6,22 +6,17 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.proyecto.spring.controller.GameController;
-import com.proyecto.spring.model.Game;
+import com.proyecto.spring.service.GameServiceImpl;
 
 @SpringBootTest
-class SpringLucaSteamGrupo1ApplicationTests {
-
-	@Autowired
-	private GameController gameCont;
+public class Test03_AutowiredService {
+    //Comprobamos que se carga el Autowired de controller
+    //Lo usaremos para llamar al servicio REST
+	@Autowired	
+	private GameServiceImpl serv;
 	
 	@Test
 	void contextLoads() {
-		
-		Game game = new Game();
-		
-		assertThat(game).isNotNull();
-		
+		assertThat(serv).isNotNull();
 	}
-
 }
