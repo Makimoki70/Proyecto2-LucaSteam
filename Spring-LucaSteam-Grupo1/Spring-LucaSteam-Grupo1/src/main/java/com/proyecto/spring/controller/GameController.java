@@ -94,8 +94,8 @@ public class GameController {
 	public ResponseEntity<?> addGame (@Valid @RequestBody Game game)
 	{
 		Game result = this.serv.addGame(game);
-		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-				.buildAndExpand(result.getId()).toUri();
-		return ResponseEntity.created(location).build();
+		/*URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+				.buildAndExpand(result.getId()).toUri();*/
+		return ResponseEntity.of(Optional.of(result));
 	}
 }

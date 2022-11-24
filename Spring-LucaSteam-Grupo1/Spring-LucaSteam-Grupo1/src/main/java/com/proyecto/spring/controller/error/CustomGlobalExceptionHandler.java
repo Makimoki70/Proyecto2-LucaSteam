@@ -38,7 +38,6 @@ public class CustomGlobalExceptionHandler  extends ResponseEntityExceptionHandle
 		response.sendError(HttpStatus.NOT_FOUND.value());
 		
 	}
-	
 
 	@Override
 	protected ResponseEntity<Object> handleHttpRequestMethodNotSupported(HttpRequestMethodNotSupportedException ex,

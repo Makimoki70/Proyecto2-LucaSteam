@@ -32,7 +32,6 @@ public class GameServiceImpl implements GameService {
 		return data.save(game);
 	}
 
-
 	@Override
 	public void cargarDatos() throws FileNotFoundException, IOException {
 		// TODO Auto-generated method stub
