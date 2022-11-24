@@ -16,8 +16,7 @@ public interface GameService {
 	public Game addGame (Game game);
 	
 
-	public void cargaInicial() throws FileNotFoundException, IOException;
-	
+	public void cargarDatos() throws FileNotFoundException, IOException;	
 
 	//Para mostrar un juego (R)
 	List<Game> findAll();
@@ -25,11 +24,17 @@ public interface GameService {
 	Optional<Game> findById(int id);
 	
 	//Para hacer update (U)
-	public void update(Game game);
+	public Optional<Game> update(Game game);
 		
 	//Para Borrar por id (D)
 	public void deleteById(int id);
 
 	public List<Game> findByPublisher(String name); //Buscar por Editor (Nintendo)
+
+
+
+
+
+	
 
 }
