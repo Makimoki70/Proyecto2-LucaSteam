@@ -18,9 +18,8 @@ class SpringLucaSteamGrupo1ApplicationTests {
 	@Test
 	void contextLoads() {
 		
-		Game game = new Game();
 		
-		assertThat(game).isNotNull();
+		assertThat(gameCont).isNotNull();
 		
 	}
 
