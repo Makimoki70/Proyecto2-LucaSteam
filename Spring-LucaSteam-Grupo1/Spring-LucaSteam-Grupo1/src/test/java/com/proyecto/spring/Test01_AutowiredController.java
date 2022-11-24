@@ -7,21 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.proyecto.spring.controller.GameController;
-import com.proyecto.spring.model.Game;
 
 @SpringBootTest
-class SpringLucaSteamGrupo1ApplicationTests {
-
-	@Autowired
-	private GameController gameCont;
+public class Test01_AutowiredController {
+    //Comprobamos que se carga el Autowired de controller
+    //Lo usaremos para llamar al servicio REST
+	@Autowired	
+	private GameController controller;
 	
 	@Test
 	void contextLoads() {
-		
-		Game game = new Game();
-		
-		assertThat(game).isNotNull();
-		
+		assertThat(controller).isNotNull();
 	}
-
 }
