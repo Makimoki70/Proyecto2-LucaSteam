@@ -34,7 +34,7 @@ public enum Plataforma {
 	XOne("X One"),
 	Defecto("No tiene plataforma valida");
 	
-private String plataforma;
+	private String plataforma;
 	
 	private Plataforma () {
 		
@@ -45,7 +45,7 @@ private String plataforma;
 	}
 	
 	public String getPlataforma() {
-		return plataforma;
+		return this.plataforma;
 	}
 	
 	public String toString() {

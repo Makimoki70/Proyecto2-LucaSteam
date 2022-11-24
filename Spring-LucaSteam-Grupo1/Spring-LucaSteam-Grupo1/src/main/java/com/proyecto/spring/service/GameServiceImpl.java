@@ -58,8 +58,9 @@ public class GameServiceImpl implements GameService {
 	public Optional<Game> update(Game game) {
 		
 		Optional<Game> currentGame = data.findById(game.getId());
-		if (currentGame != null) {
-			data.save(game);
+		System.out.println(currentGame.toString());
+		if (!currentGame.isEmpty()) {
+			currentGame = Optional.of(data.save(game));
 		
 		}
 		

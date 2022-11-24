@@ -12,6 +12,7 @@ import javax.validation.ConstraintViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -26,8 +27,8 @@ public class CustomGlobalExceptionHandler  extends ResponseEntityExceptionHandle
 	
 	@ExceptionHandler(GameNotFoundException.class)
 	public void springHandleNotFound(HttpServletResponse response) throws IOException{
-		logger.info("----- Excepción de estudiante no encontrado()");		
-		response.sendError(HttpStatus.NOT_FOUND.value());		
+		logger.info("----- Excepción de juego no encontrado()");		
+		response.sendError(HttpStatus.NOT_FOUND.value());	
 	}
 	
 	@ExceptionHandler(ConstraintViolationException.class)
@@ -37,7 +38,6 @@ public class CustomGlobalExceptionHandler  extends ResponseEntityExceptionHandle
 		response.sendError(HttpStatus.NOT_FOUND.value());
 		
 	}
-
 	
 
 	@Override
@@ -57,7 +57,4 @@ public class CustomGlobalExceptionHandler  extends ResponseEntityExceptionHandle
 		body.put("message", builder.toString());
 		return new ResponseEntity<Object> (body, new HttpHeaders(), HttpStatus.METHOD_NOT_ALLOWED);
 	}
-	
-	
-	
 }
