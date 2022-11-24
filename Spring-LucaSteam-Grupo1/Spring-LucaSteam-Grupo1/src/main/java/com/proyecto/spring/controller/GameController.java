@@ -31,10 +31,10 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @RequestMapping("/games")
 @Tag(name = "game", description = "the Games API")
 public class GameController {
-	
+
 	@Autowired
 	private GameService serv;
-	
+
 	//Metodos que autoimplementa Spring con JPA
 	//Listar Usuarios
 	@GetMapping
