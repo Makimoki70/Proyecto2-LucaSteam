@@ -67,6 +67,11 @@ public class GameController {
 		return serv.findByGenre(name);
 	}
 	
+	@GetMapping("/sigloxx")
+	public List<Game> findSigloXX(){
+		return serv.sigloxx();
+	}
+	
 	//Updatear juegos
 	@PutMapping
 	public Game update(@RequestBody Game game) {
