@@ -54,7 +54,7 @@ public class Game {
 	}
 
 	public String getPlataforma() {
-		return plataforma.getPlataforma();
+		return this.plataforma.getPlataforma();
 	}
 
 	public void setPlataforma(String plataforma) {
@@ -70,9 +70,9 @@ public class Game {
 	}
 
 	public String getGenero() {
-		return genero.getGenero();
+		return this.genero.getGenero();
 	}
-
+	
 	public void setGenero(String genero) {
 		this.genero = TratamientoDatos.tratarEnumGenero(genero);
 	}

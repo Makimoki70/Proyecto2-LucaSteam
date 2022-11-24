@@ -80,6 +80,7 @@ public class GameController {
 	//Updatear juegos
 	@PutMapping
 	public Game update(@RequestBody Game game) {
+		System.out.println(game.toString());
 		return this.serv.update(game).orElseThrow(GameNotFoundException::new);
 	}
 	
