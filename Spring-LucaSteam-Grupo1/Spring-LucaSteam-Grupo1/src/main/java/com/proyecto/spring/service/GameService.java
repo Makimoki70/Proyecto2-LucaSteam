@@ -14,7 +14,6 @@ public interface GameService {
 	
 	//Para crear juego (C)
 	public Game addGame (Game game);
-	
 
 	public void cargarDatos() throws FileNotFoundException, IOException;	
 

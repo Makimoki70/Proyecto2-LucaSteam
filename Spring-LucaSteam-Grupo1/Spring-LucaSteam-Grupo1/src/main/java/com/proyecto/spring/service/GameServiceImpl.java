@@ -32,7 +32,6 @@ public class GameServiceImpl implements GameService {
 		return data.save(game);
 	}
 
-
 	@Override
 	public void cargarDatos() throws FileNotFoundException, IOException {
 		// TODO Auto-generated method stub
@@ -58,10 +57,8 @@ public class GameServiceImpl implements GameService {
 	public Optional<Game> update(Game game) {
 		
 		Optional<Game> currentGame = data.findById(game.getId());
-		System.out.println(currentGame.toString());
 		if (!currentGame.isEmpty()) {
 			currentGame = Optional.of(data.save(game));
-		
 		}
 		
 		return currentGame;

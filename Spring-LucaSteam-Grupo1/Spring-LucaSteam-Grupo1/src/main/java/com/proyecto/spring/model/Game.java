@@ -1,5 +1,7 @@
 package com.proyecto.spring.model;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -89,5 +91,18 @@ public class Game {
 	public String toString() {
 		return "Game [id=" + id + ", nombre=" + nombre + ", plataforma=" + plataforma + ", year=" + year + ", genero="
 				+ genero + ", editor=" + editor + "]";
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Game other = (Game) obj;
+		return Objects.equals(editor, other.editor) && genero == other.genero
+				&& Objects.equals(nombre, other.nombre) && plataforma == other.plataforma && year == other.year;
 	}
 }

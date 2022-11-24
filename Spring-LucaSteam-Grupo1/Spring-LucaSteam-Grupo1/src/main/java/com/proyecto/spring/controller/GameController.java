@@ -25,6 +25,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.proyecto.spring.controller.error.GameNotFoundException;
 import com.proyecto.spring.model.Game;
 import com.proyecto.spring.service.GameService;
+import com.proyecto.spring.utilities.TratamientoDatos;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 
@@ -54,12 +55,13 @@ public class GameController {
 	
 	@GetMapping("/{id}")
 	public Optional<Game> findById(@PathVariable int id) {
-		return serv.findById(id);
+		return Optional.of(serv.findById(id).orElseThrow(() -> new GameNotFoundException(id)));
 	}
 	
 	@GetMapping("/publisher/{name}")
 	public List<Game> listGamesByPublisher(@PathVariable String name) { //Busqueda de publishers (para Nintendo)
-		return serv.findByPublisher(name);
+		List<Game> games = serv.findByPublisher(name);
+		return Optional.ofNullable(games).filter(l -> !l.isEmpty()).orElseThrow(() -> new GameNotFoundException(name));
 	}
 	
 	@GetMapping("/publisher/Nintendo")
@@ -69,7 +71,9 @@ public class GameController {
 	
 	@GetMapping("/genre/{name}")
 	public List<Game> listGamesByGenre(@PathVariable String name){
-		return serv.findByGenre(name);
+		List<Game> games = serv.findByGenre(name);
+		return Optional.ofNullable(games).filter(l -> !l.isEmpty()).orElseThrow(
+				() -> new GameNotFoundException(TratamientoDatos.tratarEnumGenero(name)));
 	}
 	
 	@GetMapping("/demo")
@@ -104,8 +108,8 @@ public class GameController {
 	public ResponseEntity<?> addGame (@Valid @RequestBody Game game)
 	{
 		Game result = this.serv.addGame(game);
-		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-				.buildAndExpand(result.getId()).toUri();
-		return ResponseEntity.created(location).build();
+		/*URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+				.buildAndExpand(result.getId()).toUri();*/
+		return ResponseEntity.of(Optional.of(result));
 	}
 }
