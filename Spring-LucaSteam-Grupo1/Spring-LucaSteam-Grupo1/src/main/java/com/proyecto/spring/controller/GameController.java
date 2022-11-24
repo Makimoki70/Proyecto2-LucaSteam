@@ -62,6 +62,11 @@ public class GameController {
 		return serv.findByPublisher(name);
 	}
 	
+	@GetMapping("/publisher/Nintendo")
+	public List<Game> listGamesByNintendo() { 
+		return serv.findByPublisher("Nintendo");
+	}
+		
 	@GetMapping("/genre/{name}")
 	public List<Game> listGamesByGenre(@PathVariable String name){
 		return serv.findByGenre(name);
