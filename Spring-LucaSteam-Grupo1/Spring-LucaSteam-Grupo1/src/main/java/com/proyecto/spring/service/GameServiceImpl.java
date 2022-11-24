@@ -84,7 +84,10 @@ public class GameServiceImpl implements GameService {
 		return data.findByGenre(name);
 	}
 
-
+	@Override
+	public List<Game> sigloxx(){
+		return data.sigloxx();
+	}
 
 
 
