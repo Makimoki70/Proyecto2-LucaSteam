@@ -13,7 +13,7 @@ public enum Genero {
 	Simulation("Simulation"),
 	Sports("Sports"),
 	Strategy("Strategy"),
-	Defecto("No tiene genero valido");
+	Defecto("Sin genero");
 
 	private String genero;
 	

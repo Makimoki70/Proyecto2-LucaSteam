@@ -25,6 +25,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.proyecto.spring.controller.error.GameNotFoundException;
 import com.proyecto.spring.model.Game;
 import com.proyecto.spring.service.GameService;
+import com.proyecto.spring.utilities.TratamientoDatos;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 
@@ -54,17 +55,20 @@ public class GameController {
 	
 	@GetMapping("/{id}")
 	public Optional<Game> findById(@PathVariable int id) {
-		return serv.findById(id);
+		return Optional.of(serv.findById(id).orElseThrow(() -> new GameNotFoundException(id)));
 	}
 	
 	@GetMapping("/publisher/{name}")
 	public List<Game> listGamesByPublisher(@PathVariable String name) { //Busqueda de publishers (para Nintendo)
-		return serv.findByPublisher(name);
+		List<Game> games = serv.findByPublisher(name);
+		return Optional.ofNullable(games).filter(l -> !l.isEmpty()).orElseThrow(() -> new GameNotFoundException(name));
 	}
 	
 	@GetMapping("/genre/{name}")
 	public List<Game> listGamesByGenre(@PathVariable String name){
-		return serv.findByGenre(name);
+		List<Game> games = serv.findByGenre(name);
+		return Optional.ofNullable(games).filter(l -> !l.isEmpty()).orElseThrow(
+				() -> new GameNotFoundException(TratamientoDatos.tratarEnumGenero(name)));
 	}
 	
 	//Updatear juegos

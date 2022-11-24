@@ -57,7 +57,4 @@ public class CustomGlobalExceptionHandler  extends ResponseEntityExceptionHandle
 		body.put("message", builder.toString());
 		return new ResponseEntity<Object> (body, new HttpHeaders(), HttpStatus.METHOD_NOT_ALLOWED);
 	}
-	
-	
-	
 }
